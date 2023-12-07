@@ -1,5 +1,5 @@
 <template>
-  <div className="flex items-center justify-between gap-[6px]">
+  <div class="flex items-center justify-between gap-[6px]">
     <img
       src="/src/assets/logo/character.png"
       alt="베스트라빈스 캐릭터"
