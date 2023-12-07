@@ -12,6 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '@src/components/Logo.vue';
-import ThemeSwitcher from '@src/components/ThemeSwitcher.vue';
+import Logo from '@components/Logo.vue';
+import ThemeSwitcher from '@components/ThemeSwitcher.vue';
 </script>

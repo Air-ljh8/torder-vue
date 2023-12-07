@@ -3,7 +3,7 @@
 </template>
 <script setup lang="ts">
 import { provide } from 'vue';
-import { useTheme } from '@src/composables/useTheme';
+import { useTheme } from '@composables/useTheme';
 
 const { theme, toggleTheme } = useTheme();
 

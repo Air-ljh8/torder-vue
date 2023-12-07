@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import TopNavBar from '@src/containers/TopNavBar.vue';
+import TopNavBar from '@containers/TopNavBar.vue';
 </script>
