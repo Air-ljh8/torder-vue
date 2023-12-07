@@ -11,8 +11,20 @@
       alt="베스트라빈스 타이틀"
       width="120"
       height="20"
+      v-if="theme === 'light'"
+    />
+    <img
+      src="/src/assets/logo/title-dark.png"
+      alt="베스트라빈스 타이틀"
+      width="120"
+      height="20"
+      v-else
     />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { inject } from 'vue';
+
+const theme = inject<'light' | 'dark'>('theme');
+</script>
