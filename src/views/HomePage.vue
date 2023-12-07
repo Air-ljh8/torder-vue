@@ -4,10 +4,6 @@
   </main>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import TheWelcome from '@components/TheWelcome.vue';
-
-export default {
-  components: { TheWelcome },
-};
 </script>
