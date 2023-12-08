@@ -1,3 +1,11 @@
 <template>
-  <div>안녕하세요!</div>
+  <div>{{ content }}</div>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  content: string;
+}>();
+</script>
+
+<style scoped></style>
