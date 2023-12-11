@@ -17,7 +17,6 @@
         currentSlideIndex = swiper.realIndex;
       }
     "
-    :css-mode="true"
   >
     <SwiperSlide
       class="flex h-full w-full items-center justify-center"
