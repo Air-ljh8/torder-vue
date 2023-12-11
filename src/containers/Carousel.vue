@@ -21,25 +21,23 @@
     <SwiperSlide
       class="flex h-full w-full items-center justify-center"
       style="display: flex"
-      v-for="(recommendation, index) in recommendations"
+      v-for="(recommendation, index) in props.recommendations"
       :key="index"
       @click="handleSlideClick(index)"
     >
       <div
-        class="relative flex items-center justify-center rounded-3xl shadow-light transition-all dark:shadow-dark"
-        :class="
-          isTargetIndex(currentSlideIndex, index)
-            ? 'z-10 h-[460px] w-[340px] cursor-pointer'
-            : 'my-[46px] h-[368px] w-[272px]'
-        "
+        :class="getRecipeWrapperStyle(isTargetIndex(currentSlideIndex, index))"
       >
         <RecipeCard
           :recipe="recommendation.recipe"
           v-if="isTargetIndex(clickedSlideIndex, index)"
         />
         <img
-          :src="recommendation.cover.imageUrl"
-          :alt="recommendation.cover.title"
+          :src="
+            recommendation.cover.imageUrl ??
+            'https://kr.object.ncloudstorage.com/best-robbins/recommendations/steady_combination.svg'
+          "
+          :alt="recommendation.cover.title ?? '베스트라빈스!'"
           width="340"
           height="460"
           v-else
@@ -62,16 +60,20 @@ import 'swiper/css/keyboard';
 import RecipeCard from '@components/RecipeCard.vue';
 import { Recommendation } from '@src/interface/goods';
 
-// props
-const { recommendations } = defineProps<{
+const props = defineProps<{
   recommendations: Recommendation[];
 }>();
 
-// data
 const currentSlideIndex = ref(0);
 const clickedSlideIndex = ref(-1);
 
-// methods
+const getRecipeWrapperStyle = (isTargetIndex: boolean) => ({
+  'relative flex items-center justify-center rounded-3xl shadow-light transition-all dark:shadow-dark':
+    true,
+  'z-10 h-[460px] w-[340px] cursor-pointer': isTargetIndex,
+  'my-[46px] h-[368px] w-[272px]': !isTargetIndex,
+});
+
 function isTargetIndex(standardIndex: number, targetIndex: number) {
   return standardIndex === targetIndex;
 }
