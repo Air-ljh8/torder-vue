@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { Recipe } from '@src/types';
+import { Recipe } from '@src/interface/goods';
 
 const { recipe, hasBookmark } = defineProps<{
   recipe: Recipe;

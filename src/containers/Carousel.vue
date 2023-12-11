@@ -60,7 +60,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/keyboard';
 
 import RecipeCard from '@components/RecipeCard.vue';
-import { Recommendation } from '@src/types';
+import { Recommendation } from '@src/interface/goods';
 
 // props
 const { recommendations } = defineProps<{
