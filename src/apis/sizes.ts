@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/vue-query';
 import axios from 'axios';
 
-type Size = {
-  id: number;
-  name: string;
-  imageUrl: string;
-  value: number;
+import { Size } from '@src/interface/goods';
+
+type Response = {
+  sizes: Size[];
+  message: string;
 };
 
 export const useGetSizes = () => {
-  return useQuery<{ sizes: Size[]; message: string }>({
+  return useQuery<Response>({
     queryKey: ['sizes'],
     queryFn: async () => {
       const { data } = await axios.get('/sizes');

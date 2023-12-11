@@ -4,28 +4,19 @@ import { useRouter } from 'vue-router';
 
 import { endpoints } from '@apis';
 
-type Flavor = {
-  id: number;
-  flavorName: string;
-  imageUrl: string;
-};
+import { Recipe } from '@src/interface/goods';
+import { UserItem } from '@src/interface/user';
 
-export type Recipe = {
-  id: number;
-  recipeName: string;
-  flavors: Flavor[];
-};
-
-type UserItem = {
-  sizeId: number;
-  ingredientIds: number[];
+type GetResponse = {
+  recipe: Recipe;
+  message: string;
 };
 
 export const useGetRecipe = (id: number) => {
-  return useQuery<{ recipe: Recipe; message: string }>({
+  return useQuery<GetResponse>({
     queryKey: ['recipe', id],
     queryFn: async () => {
-      const { data } = await axios.get(`/recipes/${id}`);
+      const { data } = await axios.get(`${endpoints.recipe}/${id}`);
       const { body: recipe, message } = data;
       return { recipe, message };
     },

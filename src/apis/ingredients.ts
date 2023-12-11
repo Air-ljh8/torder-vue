@@ -3,12 +3,7 @@ import axios from 'axios';
 
 import { endpoints } from '@apis';
 
-type Ingredient = {
-  id: number;
-  name: string;
-  imageUrl: string;
-  flavorIdList: number[];
-};
+import { Ingredient } from '@src/interface/goods';
 
 type Response = {
   ingredients: Ingredient[];

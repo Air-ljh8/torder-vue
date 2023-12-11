@@ -2,19 +2,8 @@ import { useQuery } from '@tanstack/vue-query';
 import axios from 'axios';
 
 import { endpoints } from '@apis';
-import { Recipe } from './recipe';
 
-type Cover = {
-  id: number;
-  title: string;
-  subTitle: string;
-  imageUrl: string;
-};
-
-type Recommendation = {
-  cover: Cover;
-  recipe: Recipe;
-};
+import { Recommendation } from '@src/interface/goods';
 
 type Response = {
   recommendations: Recommendation[];

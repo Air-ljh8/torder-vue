@@ -35,9 +35,3 @@ export type Ingredient = {
   imageUrl: string;
   flavorIdList: number[];
 };
-
-export type UserSelect = {
-  sizeId: number;
-  sizeValue: number;
-  ingredientIds: number[];
-};
