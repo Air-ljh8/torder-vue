@@ -12,11 +12,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@tanstack/vue-query": "^5.12.2",
     "@vueuse/core": "^10.6.0",
     "axios": "^1.6.1",
     "esbuild": "^0.19.5",
     "fp-ts": "^2.16.1",
     "pinia": "^2.0.14",
+    "swiper": "^11.0.5",
     "vue": "^3.2.36",
     "vue-router": "^4.0.0-0"
   },
