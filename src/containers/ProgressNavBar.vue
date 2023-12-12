@@ -8,24 +8,23 @@
       <BackButton :prevPage="props.prevPage">뒤</BackButton>
       <BackButton prevPage="/">홈</BackButton>
     </div>
-    <div
-      class="absolute bottom-0 h-[2px] bg-gray_05-light dark:bg-gray_05-dark left-0"
-      :class="processWidth[props.pageName]"
-    ></div>
+    <div :class="getProgressStyle()"></div>
   </header>
 </template>
 
 <script setup lang="ts">
 import BackButton from '@components/BackButton.vue';
 
-const processWidth = {
-  size: 'w-1/3',
-  ingredient: 'w-2/3',
-  result: 'w-full',
-};
-
 const props = defineProps<{
   pageName: 'size' | 'ingredient' | 'result';
   prevPage: string;
 }>();
+
+const getProgressStyle = () => ({
+  'absolute bottom-0 h-[2px] bg-gray_05-light dark:bg-gray_05-dark left-0':
+    true,
+  'w-1/3': props.pageName === 'size',
+  'w-2/3': props.pageName === 'ingredient',
+  'w-full': props.pageName === 'result',
+});
 </script>
