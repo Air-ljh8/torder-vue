@@ -22,7 +22,7 @@ import SizeBoard from '@containers/SizeBoard.vue';
 import NextButton from '@components/NextButton.vue';
 import { useGetSizes } from '@apis/sizes';
 import { pushPage } from '@router/route.helper';
-import { useUserSelectStore } from '@src/store/storeUserSelect';
+import { useUserSelectStore } from '@store/storeUserSelect';
 
 const { data, isLoading } = useGetSizes();
 const { userSelect } = useUserSelectStore();
