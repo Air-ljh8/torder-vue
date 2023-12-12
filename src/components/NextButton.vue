@@ -1,5 +1,7 @@
 <template>
-  <button @click="onClick" :class="getButtonStyle()"><slot></slot></button>
+  <button @click="onClick" :class="getButtonStyle()">
+    <slot></slot>
+  </button>
 </template>
 
 <script setup lang="ts">

@@ -6,7 +6,7 @@
       <TopNavBar />
       <div v-if="!data?.recommendations">로딩중입니다.</div>
       <Carousel :recommendations="data?.recommendations" v-else />
-      <NextButton :onClick="moveToSizePage">꿀조합 찾기</NextButton>
+      <NextButton :onClick="() => router.push('/size')">꿀조합 찾기</NextButton>
       <GlobalNavBar />
     </section>
   </div>
@@ -23,8 +23,4 @@ import { useGetRecommendations } from '@apis/recommendations';
 
 const { data } = useGetRecommendations();
 const router = useRouter();
-
-function moveToSizePage() {
-  router.push('/size');
-}
 </script>
