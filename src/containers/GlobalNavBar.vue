@@ -2,23 +2,32 @@
   <footer
     class="flex h-20 w-full flex-row justify-around border-t border-t-gray_01-light p-2 pb-8 dark:border-t-gray_01-dark"
   >
-    <RouterLink to="/" class="flex flex-col items-center justify-start">
+    <button class="flex flex-col items-center justify-start" @click="goHome">
       <div :class="getIconStyle(isHome)"></div>
       <p :class="getTextStyle(isHome)">홈</p>
-    </RouterLink>
-    <RouterLink to="/user" class="flex flex-col items-center justify-start">
+    </button>
+    <button class="flex flex-col items-center justify-start" @click="goUser">
       <div :class="getIconStyle(isUser)"></div>
       <p :class="getTextStyle(isUser)">마이</p>
-    </RouterLink>
+    </button>
   </footer>
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
+const router = useRouter();
 const isHome = route.path === '/';
 const isUser = route.path === '/user';
+
+function goHome() {
+  router.push('/');
+}
+
+function goUser() {
+  router.push('/user');
+}
 
 const getIconStyle = (isPath: boolean) => ({
   'h-6 w-6': true,
@@ -31,5 +40,3 @@ const getTextStyle = (isPath: boolean) => ({
   'text-gray_04-light dark:text-gray_03-dark': !isPath,
 });
 </script>
-
-<style scoped></style>

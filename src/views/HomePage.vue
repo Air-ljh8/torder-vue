@@ -6,12 +6,14 @@
       <TopNavBar />
       <div v-if="!data?.recommendations">로딩중입니다.</div>
       <Carousel :recommendations="data?.recommendations" v-else />
+      <GlobalNavBar />
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
 import TopNavBar from '@containers/TopNavBar.vue';
+import GlobalNavBar from '@containers/GlobalNavBar.vue';
 import Carousel from '@containers/Carousel.vue';
 
 import { useGetRecommendations } from '@apis/recommendations';
