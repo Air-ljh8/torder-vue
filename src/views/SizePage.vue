@@ -6,7 +6,10 @@
       <ProgressNavBar prevPage="/" pageName="size" />
       <div v-if="!data?.sizes">로딩중입니다.</div>
       <SizeBoard :sizes="data?.sizes" v-else />
-      <NextButton :onClick="() => pushPage('ingredient')" isPrimary
+      <NextButton
+        :onClick="() => pushPage('ingredient')"
+        isPrimary
+        :disabled="!userSelect.sizeId"
         >다음</NextButton
       >
     </section>
@@ -19,6 +22,8 @@ import SizeBoard from '@containers/SizeBoard.vue';
 import NextButton from '@components/NextButton.vue';
 import { useGetSizes } from '@apis/sizes';
 import { pushPage } from '@router/route.helper';
+import { useUserSelectStore } from '@src/store/storeUserSelect';
 
 const { data } = useGetSizes();
+const { userSelect } = useUserSelectStore();
 </script>
