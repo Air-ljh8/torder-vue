@@ -6,17 +6,25 @@
       <TopNavBar />
       <div v-if="!data?.recommendations">로딩중입니다.</div>
       <Carousel :recommendations="data?.recommendations" v-else />
+      <NextButton :onClick="moveToSizePage">꿀조합 찾기</NextButton>
       <GlobalNavBar />
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
 import TopNavBar from '@containers/TopNavBar.vue';
 import GlobalNavBar from '@containers/GlobalNavBar.vue';
 import Carousel from '@containers/Carousel.vue';
-
+import NextButton from '@components/NextButton.vue';
 import { useGetRecommendations } from '@apis/recommendations';
 
 const { data } = useGetRecommendations();
+const router = useRouter();
+
+function moveToSizePage() {
+  router.push('/size');
+}
 </script>
