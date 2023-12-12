@@ -5,8 +5,8 @@
     <div
       class="flex h-16 w-full items-center justify-between border-gray_02-light p-4 dark:border-gray_02-dark"
     >
-      <BackButton :prevPage="props.prevPage" />
-      <CloseButton />
+      <BackButton :prevPage="props.prevPage">뒤</BackButton>
+      <BackButton prevPage="/">홈</BackButton>
     </div>
     <div
       class="absolute bottom-0 h-[2px] bg-gray_05-light dark:bg-gray_05-dark left-0"
@@ -17,7 +17,6 @@
 
 <script setup lang="ts">
 import BackButton from '@components/BackButton.vue';
-import CloseButton from '@components/CloseButton.vue';
 
 const processWidth = {
   size: 'w-1/3',
