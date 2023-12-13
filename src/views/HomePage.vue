@@ -4,8 +4,8 @@
       class="mx-auto flex h-full flex-col items-center justify-between bg-gray_00-light text-gray_05-light dark:bg-gray_00-dark dark:text-gray_05-dark sm:w-screen md:w-96"
     >
       <TopNavBar />
-      <div v-if="!data?.recommendations">로딩중입니다.</div>
-      <Carousel :recommendations="data?.recommendations" v-else />
+      <div v-if="isLoading">로딩중입니다.</div>
+      <Carousel :recommendations="data?.recommendations ?? []" v-else />
       <NextButton :onClick="() => pushPage('size')">꿀조합 찾기</NextButton>
       <GlobalNavBar />
     </section>
@@ -17,8 +17,8 @@ import TopNavBar from '@containers/TopNavBar.vue';
 import GlobalNavBar from '@containers/GlobalNavBar.vue';
 import Carousel from '@containers/Carousel.vue';
 import NextButton from '@components/NextButton.vue';
-import { pushPage } from '@src/router/route.helper';
+import { pushPage } from '@router/route.helper';
 import { useGetRecommendations } from '@apis/recommendations';
 
-const { data } = useGetRecommendations();
+const { data, isLoading } = useGetRecommendations();
 </script>
