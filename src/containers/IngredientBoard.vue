@@ -6,11 +6,7 @@
       <button
         :key="ingredient.id"
         class="flex flex-col items-center justify-between gap-y-[10px]"
-        @click="
-          () => {
-            handleIngredientClick(ingredient.id);
-          }
-        "
+        @click="handleIngredientClick(ingredient.id)"
         v-for="ingredient in ingredients"
       >
         <div :class="getUserSelectStyle(ingredient)">
@@ -29,9 +25,9 @@
 </template>
 
 <script setup lang="ts">
-import { Ingredient } from '@src/interface/goods';
-import { useUserSelectStore } from '@src/store/storeUserSelect';
-import { PLACE_HOLD_IMAGE_URL } from '@src/constants';
+import { Ingredient } from '@interface/goods';
+import { useUserSelectStore } from '@store/storeUserSelect';
+import { PLACE_HOLD_IMAGE_URL } from '@constants';
 
 const { userSelect, setUserSelectIngredientIds } = useUserSelectStore();
 

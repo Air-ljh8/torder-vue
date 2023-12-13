@@ -6,20 +6,9 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-  plugins: [
-    VueDevTools(),
-    vue(),
-  ],
+  plugins: [VueDevTools(), vue()],
   resolve: {
-    extensions: [
-      '.mjs',
-      '.js',
-      '.ts',
-      '.jsx',
-      '.tsx',
-      '.json',
-      '.vue',
-    ],
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     alias: {
       '@': path.resolve(__dirname, '.'),
       '@src': path.resolve(__dirname, 'src'),
@@ -28,6 +17,7 @@ export default defineConfig({
       '@codecs': path.resolve(__dirname, 'src/codecs'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@composables': path.resolve(__dirname, 'src/composables'),
+      '@constants': path.resolve(__dirname, 'src/constants'),
       '@containers': path.resolve(__dirname, 'src/containers'),
       '@interface': path.resolve(__dirname, 'src/interface'),
       '@layouts': path.resolve(__dirname, 'src/layouts'),

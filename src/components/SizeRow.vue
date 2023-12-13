@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { Size } from '@interface/goods';
 import { useUserSelectStore } from '@store/storeUserSelect';
-import { PLACE_HOLD_IMAGE_URL } from '../constants';
+import { PLACE_HOLD_IMAGE_URL } from '@constants';
 
 defineProps<{
   title: string;
