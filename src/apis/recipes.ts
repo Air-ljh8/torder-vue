@@ -14,7 +14,7 @@ type GetResponse = {
 
 export const useGetRecipe = (id: number) => {
   return useQuery<GetResponse>({
-    queryKey: ['recipe', id],
+    queryKey: ['recipes', id],
     queryFn: async () => {
       const { data } = await axios.get(`${endpoints.recipes}/${id}`);
       const { body: recipe, message } = data;
