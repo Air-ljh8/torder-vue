@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { reactive } from 'vue';
 
-import { UserSelect } from '@src/interface/user';
+import { UserSelect } from '@interface/user';
 
 export const useUserSelectStore = defineStore('userSelect', () => {
   const initialUserSelect: UserSelect = {
@@ -9,22 +9,22 @@ export const useUserSelectStore = defineStore('userSelect', () => {
     sizeValue: 0,
     ingredientIds: [],
   };
-  const userSelect = ref(initialUserSelect);
+  const userSelect = reactive(initialUserSelect);
 
-  function setUserSelectSizeId(sizeId: number) {
-    userSelect.value.sizeId = sizeId;
-  }
-  function setUserSelectSizeValue(sizeValue: number) {
-    userSelect.value.sizeValue = sizeValue;
-  }
-  function setUserSelectIngredientIds(ingredientIds: number[]) {
-    userSelect.value.ingredientIds = ingredientIds;
-  }
-  function resetUserSelect() {
-    userSelect.value.sizeId = 0;
-    userSelect.value.sizeValue = 0;
-    userSelect.value.ingredientIds = [];
-  }
+  const setUserSelectSizeId = (sizeId: number) => {
+    userSelect.sizeId = sizeId;
+  };
+  const setUserSelectSizeValue = (sizeValue: number) => {
+    userSelect.sizeValue = sizeValue;
+  };
+  const setUserSelectIngredientIds = (ingredientIds: number[]) => {
+    userSelect.ingredientIds = ingredientIds;
+  };
+  const resetUserSelect = () => {
+    userSelect.sizeId = 0;
+    userSelect.sizeValue = 0;
+    userSelect.ingredientIds = [];
+  };
 
   return {
     userSelect,

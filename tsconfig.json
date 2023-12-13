@@ -27,6 +27,8 @@
       "@components/*": ["src/components/*"],
       "@composables": ["src/composables"],
       "@composables/*": ["src/composables/*"],
+      "@constants": ["src/constants"],
+      "@constants/*": ["src/constants/*"],
       "@containers": ["src/containers"],
       "@containers/*": ["src/containers/*"],
       "@interface": ["src/interface"],
