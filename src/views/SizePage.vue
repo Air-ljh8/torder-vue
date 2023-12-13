@@ -10,8 +10,9 @@
         :onClick="() => pushPage('ingredient')"
         isPrimary
         :disabled="!userSelect.sizeId"
-        >다음</NextButton
       >
+        다음
+      </NextButton>
     </section>
   </div>
 </template>

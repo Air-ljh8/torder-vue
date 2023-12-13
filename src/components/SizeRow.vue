@@ -6,15 +6,11 @@
         v-for="size in sizes"
         :key="size.id"
         class="flex flex-col items-center justify-between gap-y-[10px]"
-        @click="
-          () => {
-            handleSizeClick(size);
-          }
-        "
+        @click="handleSizeClick(size)"
       >
         <div :class="getUserSelectStyle(size)">
           <img
-            :src="size.imageUrl"
+            :src="size.imageUrl ?? PLACE_HOLD_IMAGE_URL"
             :alt="size.name"
             :width="getImageWidth(size)"
             :height="30"
@@ -29,6 +25,7 @@
 <script setup lang="ts">
 import { Size } from '@interface/goods';
 import { useUserSelectStore } from '@store/storeUserSelect';
+import { PLACE_HOLD_IMAGE_URL } from '../constants';
 
 defineProps<{
   title: string;
