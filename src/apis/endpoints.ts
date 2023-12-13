@@ -4,7 +4,7 @@ const endpoints = {
   recommendations: `${API_BASE_URL}/recommendations`,
   sizes: `${API_BASE_URL}/sizes`,
   ingredients: `${API_BASE_URL}/ingredients`,
-  recipe: `${API_BASE_URL}/recipe`,
+  recipes: `${API_BASE_URL}/recipes`,
 };
 
 export default endpoints;

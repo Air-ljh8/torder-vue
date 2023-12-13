@@ -16,7 +16,7 @@ export const useGetRecipe = (id: number) => {
   return useQuery<GetResponse>({
     queryKey: ['recipe', id],
     queryFn: async () => {
-      const { data } = await axios.get(`${endpoints.recipe}/${id}`);
+      const { data } = await axios.get(`${endpoints.recipes}/${id}`);
       const { body: recipe, message } = data;
       return { recipe, message };
     },
@@ -27,10 +27,10 @@ export const usePostRecipe = () => {
   const router = useRouter();
   return useMutation({
     mutationFn: async (userItem: UserItem) =>
-      await axios.post(endpoints.recipe, userItem),
+      await axios.post(endpoints.recipes, userItem),
     onSuccess: (data) => {
       const { body } = data.data;
-      router.push(`/recommendations/${body.id}`);
+      router.push(`/result/${body.id}`);
     },
     onError: () => {
       alert('레시피 추가에 실패했습니다.');

@@ -59,5 +59,3 @@ const getUserSelectStyle = (size: Size) => ({
     userSelect.sizeId !== size.id,
 });
 </script>
-
-<style scoped></style>
