@@ -58,7 +58,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/keyboard';
 
 import RecipeCard from '@components/RecipeCard.vue';
-import { Recommendation } from '@src/interface/goods';
+import { Recommendation } from '@interface/goods';
 
 const props = defineProps<{
   recommendations: Recommendation[];

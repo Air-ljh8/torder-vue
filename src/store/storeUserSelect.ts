@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { reactive } from 'vue';
+import { computed, reactive } from 'vue';
 
 import { UserSelect } from '@interface/user';
 
@@ -10,6 +10,11 @@ export const useUserSelectStore = defineStore('userSelect', () => {
     ingredientIds: [],
   };
   const userSelect = reactive(initialUserSelect);
+
+  const userItem = computed(() => ({
+    sizeId: userSelect.sizeId,
+    ingredientIds: userSelect.ingredientIds,
+  }));
 
   const setUserSelectSizeId = (sizeId: number) => {
     userSelect.sizeId = sizeId;
@@ -28,6 +33,7 @@ export const useUserSelectStore = defineStore('userSelect', () => {
 
   return {
     userSelect,
+    userItem,
     setUserSelectSizeId,
     setUserSelectSizeValue,
     setUserSelectIngredientIds,
