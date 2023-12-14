@@ -34,10 +34,10 @@ import { usePostRecipe } from '@apis/recipes';
 
 const store = useUserSelectStore();
 const { userSelect } = store;
-const userItem = {
+const userItem = computed(() => ({
   sizeId: userSelect.sizeId,
   ingredientIds: userSelect.ingredientIds,
-};
+}));
 
 const { data, isLoading } = useGetIngredients();
 const mutation = usePostRecipe();

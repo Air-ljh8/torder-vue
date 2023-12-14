@@ -4,10 +4,10 @@
   >
     <div class="flex flex-wrap gap-x-2">
       <button
-        :key="ingredient.id"
-        class="flex flex-col items-center justify-between gap-y-[10px]"
-        @click="handleIngredientClick(ingredient.id)"
         v-for="ingredient in ingredients"
+        :key="ingredient.id"
+        @click="handleIngredientClick(ingredient.id)"
+        class="flex flex-col items-center justify-between gap-y-[10px]"
       >
         <div :class="getUserSelectStyle(ingredient)">
           <img
