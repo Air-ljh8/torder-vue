@@ -19,7 +19,7 @@
         :onClick="
           () => {
             resetUserSelect();
-            pushPage('home');
+            pushPage('size');
           }
         "
         >다시하기</NextButton
