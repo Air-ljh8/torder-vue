@@ -4,8 +4,8 @@ import { useRouter } from 'vue-router';
 
 import { endpoints } from '@apis';
 
-import { Recipe } from '@src/interface/goods';
-import { UserItem } from '@src/interface/user';
+import { Recipe } from '@interface/goods';
+import { UserItem } from '@interface/user';
 
 type GetResponse = {
   recipe: Recipe;

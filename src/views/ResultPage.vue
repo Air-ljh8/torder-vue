@@ -35,7 +35,7 @@ import RecipeCard from '@components/RecipeCard.vue';
 import NextButton from '@components/NextButton.vue';
 import { pushPage } from '@router/route.helper';
 import { useGetRecipe } from '@apis/recipes';
-import { useUserSelectStore } from '@src/store/storeUserSelect';
+import { useUserSelectStore } from '@store/storeUserSelect';
 
 const route = useRoute();
 const { id } = route.params;

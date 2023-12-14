@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import BackButton from '@components/BackButton.vue';
-import { useUserSelectStore } from '@src/store/storeUserSelect';
+import { useUserSelectStore } from '@store/storeUserSelect';
 
 const props = defineProps<{
   pageName: 'size' | 'ingredient' | 'result';

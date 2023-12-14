@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { pushPage } from '@src/router/route.helper';
+import { pushPage } from '@router/route.helper';
 
 const route = useRoute();
 const isHome = route.path === '/';
