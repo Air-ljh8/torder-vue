@@ -15,7 +15,15 @@
           <RecipeCard v-else :recipe="data?.recipe!" hasBookmark />
         </div>
       </main>
-      <NextButton :onClick="() => pushPage('home')">다시하기</NextButton>
+      <NextButton
+        :onClick="
+          () => {
+            resetUserSelect();
+            pushPage('home');
+          }
+        "
+        >다시하기</NextButton
+      >
     </section>
   </div>
 </template>
@@ -26,9 +34,12 @@ import ProgressNavBar from '@containers/ProgressNavBar.vue';
 import RecipeCard from '@components/RecipeCard.vue';
 import NextButton from '@components/NextButton.vue';
 import { pushPage } from '@router/route.helper';
-import { useGetRecipe } from '@src/apis/recipes';
+import { useGetRecipe } from '@apis/recipes';
+import { useUserSelectStore } from '@src/store/storeUserSelect';
 
 const route = useRoute();
 const { id } = route.params;
 const { data, isLoading } = useGetRecipe(Number(id));
+const store = useUserSelectStore();
+const { resetUserSelect } = store;
 </script>
