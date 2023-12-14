@@ -6,7 +6,7 @@
       class="flex h-16 w-full items-center justify-between border-gray_02-light p-4 dark:border-gray_02-dark"
     >
       <BackButton :prevPage="props.prevPage">뒤</BackButton>
-      <BackButton prevPage="/">홈</BackButton>
+      <BackButton prevPage="/" @click="resetUserSelect()">홈</BackButton>
     </div>
     <div :class="getProgressStyle()"></div>
   </header>
@@ -14,11 +14,14 @@
 
 <script setup lang="ts">
 import BackButton from '@components/BackButton.vue';
+import { useUserSelectStore } from '@src/store/storeUserSelect';
 
 const props = defineProps<{
   pageName: 'size' | 'ingredient' | 'result';
   prevPage: string;
 }>();
+
+const { resetUserSelect } = useUserSelectStore();
 
 const getProgressStyle = () => ({
   'absolute bottom-0 h-[2px] bg-gray_05-light dark:bg-gray_05-dark left-0':
