@@ -18,8 +18,7 @@
       <NextButton
         :onClick="
           () => {
-            resetUserSelect();
-            pushPage('size');
+            handleResetClick();
           }
         "
         >다시하기</NextButton
@@ -42,4 +41,9 @@ const { id } = route.params;
 const { data, isLoading } = useGetRecipe(Number(id));
 const store = useUserSelectStore();
 const { resetUserSelect } = store;
+
+const handleResetClick = () => {
+  resetUserSelect();
+  pushPage('size');
+};
 </script>

@@ -24,6 +24,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { storeToRefs } from 'pinia';
 
 import ProgressNavBar from '@containers/ProgressNavBar.vue';
 import IngredientBoard from '@containers/IngredientBoard.vue';
@@ -33,18 +34,14 @@ import { useGetIngredients } from '@apis/ingredients';
 import { usePostRecipe } from '@apis/recipes';
 
 const store = useUserSelectStore();
-const { userSelect } = store;
-const userItem = computed(() => ({
-  sizeId: userSelect.sizeId,
-  ingredientIds: userSelect.ingredientIds,
-}));
+const { userSelect, userItem } = storeToRefs(store);
 
 const { data, isLoading } = useGetIngredients();
 const mutation = usePostRecipe();
 
 const allFlavorIdList = computed(
   () =>
-    userSelect.ingredientIds
+    userSelect.value.ingredientIds
       .map((id) => {
         const flavorIdList = data.value?.ingredients.find(
           (ingredient) => ingredient.id === id
@@ -60,6 +57,6 @@ const flavorIdList = computed(
     ) ?? []
 );
 const isAbleToRecommend = computed(
-  () => flavorIdList.value.length >= userSelect.sizeValue
+  () => flavorIdList.value.length >= userSelect.value.sizeValue
 );
 </script>
