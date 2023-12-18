@@ -1,16 +1,41 @@
-import {
-  createRouter,
-  createWebHistory,
-} from 'vue-router';
-import HomeView from '@views/HomeView.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+
+import { routes } from './routerPaths';
+import HomePage from '@views/HomePage.vue';
+import SizePage from '@views/SizePage.vue';
+import IngredientPage from '@views/IngredientPage.vue';
+import ResultPage from '@views/ResultPage.vue';
+import UserPage from '@views/UserPage.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [{
-    path: '/',
-    name: 'home',
-    component: HomeView,
-  }],
+  routes: [
+    {
+      path: routes.home,
+      name: 'home',
+      component: HomePage,
+    },
+    {
+      path: routes.size,
+      name: 'size',
+      component: SizePage,
+    },
+    {
+      path: routes.ingredient,
+      name: 'ingredient',
+      component: IngredientPage,
+    },
+    {
+      path: `${routes.result}/:id`,
+      name: 'result',
+      component: ResultPage,
+    },
+    {
+      path: routes.user,
+      name: 'user',
+      component: UserPage,
+    },
+  ],
 });
 
 export default router;

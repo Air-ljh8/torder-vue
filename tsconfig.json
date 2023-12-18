@@ -13,7 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["kakao.maps.d.ts", "node", "vite/client"],
+    "types": ["node", "vite/client"],
     "paths": {
       "@src": ["src"],
       "@src/*": ["src/*"],
@@ -27,6 +27,8 @@
       "@components/*": ["src/components/*"],
       "@composables": ["src/composables"],
       "@composables/*": ["src/composables/*"],
+      "@constants": ["src/constants"],
+      "@constants/*": ["src/constants/*"],
       "@containers": ["src/containers"],
       "@containers/*": ["src/containers/*"],
       "@interface": ["src/interface"],
@@ -54,7 +56,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/interface/custom.d.ts",
+    "src/interface/custom.d.ts"
   ],
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "node_modules"]
 }
