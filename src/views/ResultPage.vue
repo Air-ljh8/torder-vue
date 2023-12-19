@@ -11,7 +11,7 @@
         <div
           class="relative flex h-[460px] w-[340px] items-center justify-center rounded-3xl shadow-light transition-all dark:shadow-dark"
         >
-          <img v-if="isLoading" :src="loadingGIF" />
+          <Loading v-if="isLoading" />
           <RecipeCard v-else :recipe="data?.recipe!" hasBookmark />
         </div>
       </main>
@@ -32,10 +32,10 @@ import { useRoute } from 'vue-router';
 import ProgressNavBar from '@containers/ProgressNavBar.vue';
 import RecipeCard from '@components/RecipeCard.vue';
 import NextButton from '@components/NextButton.vue';
+import Loading from '@src/components/Loading.vue';
 import { pushPage } from '@router/route.helper';
 import { useGetRecipe } from '@apis/recipes';
 import { useUserSelectStore } from '@store/storeUserSelect';
-import loadingGIF from '@assets/loading/loading.gif';
 
 const route = useRoute();
 const { id } = route.params;

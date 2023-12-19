@@ -4,7 +4,7 @@
       class="mx-auto flex h-full flex-col items-center justify-between bg-gray_00-light text-gray_05-light dark:bg-gray_00-dark dark:text-gray_05-dark sm:w-screen md:w-96"
     >
       <ProgressNavBar prevPage="/size" pageName="ingredient" />
-      <img v-if="isLoading" :src="loadingGIF" />
+      <Loading v-if="isLoading" />
       <IngredientBoard :ingredients="data?.ingredients ?? []" v-else />
       <div v-if="!isAbleToRecommend">재료를 조금 더 골라볼까요?</div>
       <NextButton
@@ -29,10 +29,10 @@ import { storeToRefs } from 'pinia';
 import ProgressNavBar from '@containers/ProgressNavBar.vue';
 import IngredientBoard from '@containers/IngredientBoard.vue';
 import NextButton from '@components/NextButton.vue';
+import Loading from '@src/components/Loading.vue';
 import { useUserSelectStore } from '@store/storeUserSelect';
 import { useGetIngredients } from '@apis/ingredients';
 import { usePostRecipe } from '@apis/recipes';
-import loadingGIF from '@assets/loading/loading.gif';
 
 const store = useUserSelectStore();
 const { userSelect, userItem } = storeToRefs(store);

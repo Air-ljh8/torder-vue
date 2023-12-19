@@ -1,5 +1,5 @@
 <template>
-  <button @click="handleNextButtonClick()" :class="getNextButtonStyle()">
+  <button @click="handleNextButtonClick" :class="getNextButtonStyle()">
     <slot />
   </button>
 </template>
