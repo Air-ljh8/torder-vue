@@ -3,7 +3,7 @@
     <section
       class="mx-auto flex h-full flex-col items-center justify-between bg-gray_00-light text-gray_05-light dark:bg-gray_00-dark dark:text-gray_05-dark sm:w-screen md:w-96"
     >
-      <ProgressNavBar pageName="result" prevPage="/ingredient" />
+      <ProgressNavBar pageName="result" prevPage="ingredient" />
       <main
         class="flex h-full w-full flex-1 flex-col items-center justify-start gap-y-5 px-5 pt-[34px]"
       >

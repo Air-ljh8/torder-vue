@@ -3,7 +3,7 @@
     <section
       class="mx-auto flex h-full flex-col items-center justify-between bg-gray_00-light text-gray_05-light dark:bg-gray_00-dark dark:text-gray_05-dark sm:w-screen md:w-96"
     >
-      <ProgressNavBar prevPage="/size" pageName="ingredient" />
+      <ProgressNavBar prevPage="size" pageName="ingredient" />
       <Loading v-if="isLoading" />
       <IngredientBoard :ingredients="data?.ingredients ?? []" v-else />
       <div v-if="!isAbleToRecommend">재료를 조금 더 골라볼까요?</div>

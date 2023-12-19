@@ -8,15 +8,13 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { pushPage } from '@src/router/route.helper';
 
 const props = defineProps<{
   prevPage: string;
 }>();
 
-const router = useRouter();
-
 function goBack() {
-  router.push(props.prevPage);
+  pushPage(props.prevPage);
 }
 </script>
