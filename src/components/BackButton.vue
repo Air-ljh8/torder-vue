@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { pushPage } from '@src/router/route.helper';
+import { pushPage } from '@router/route.helper';
 
 const props = defineProps<{
   prevPage: string;

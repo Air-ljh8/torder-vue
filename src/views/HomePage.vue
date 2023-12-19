@@ -17,7 +17,7 @@ import TopNavBar from '@containers/TopNavBar.vue';
 import GlobalNavBar from '@containers/GlobalNavBar.vue';
 import Carousel from '@containers/Carousel.vue';
 import NextButton from '@components/NextButton.vue';
-import Loading from '@src/components/Loading.vue';
+import Loading from '@components/Loading.vue';
 import { pushPage } from '@router/route.helper';
 import { useGetRecommendations } from '@apis/recommendations';
 

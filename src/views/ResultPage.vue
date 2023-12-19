@@ -32,7 +32,7 @@ import { useRoute } from 'vue-router';
 import ProgressNavBar from '@containers/ProgressNavBar.vue';
 import RecipeCard from '@components/RecipeCard.vue';
 import NextButton from '@components/NextButton.vue';
-import Loading from '@src/components/Loading.vue';
+import Loading from '@components/Loading.vue';
 import { pushPage } from '@router/route.helper';
 import { useGetRecipe } from '@apis/recipes';
 import { useUserSelectStore } from '@store/storeUserSelect';

@@ -22,7 +22,7 @@ import { storeToRefs } from 'pinia';
 import ProgressNavBar from '@containers/ProgressNavBar.vue';
 import SizeBoard from '@containers/SizeBoard.vue';
 import NextButton from '@components/NextButton.vue';
-import Loading from '@src/components/Loading.vue';
+import Loading from '@components/Loading.vue';
 import { useGetSizes } from '@apis/sizes';
 import { pushPage } from '@router/route.helper';
 import { useUserSelectStore } from '@store/storeUserSelect';
