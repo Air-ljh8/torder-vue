@@ -8,11 +8,7 @@
       <IngredientBoard :ingredients="data?.ingredients ?? []" v-else />
       <div v-if="!isAbleToRecommend">재료를 조금 더 골라볼까요?</div>
       <NextButton
-        :onClick="
-          () => {
-            mutation.mutate(userItem);
-          }
-        "
+        :onClick="postUserItem"
         isPrimary
         :disabled="!isAbleToRecommend || !userSelect.sizeValue"
       >
@@ -39,6 +35,9 @@ const { userSelect, userItem } = storeToRefs(store);
 
 const { data, isLoading } = useGetIngredients();
 const mutation = usePostRecipe();
+const postUserItem = () => {
+  mutation.mutate(userItem.value);
+};
 
 const allFlavorIdList = computed(
   () =>
