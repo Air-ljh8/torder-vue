@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { Ingredient } from '@interface/goods';
+import { Ingredient } from '@interface/ingredients';
 import { useUserSelectStore } from '@store/storeUserSelect';
 import { PLACE_HOLD_IMAGE_URL } from '@constants';
 

@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import SizeRow from '@components/SizeRow.vue';
-import { Size } from '@interface/goods';
+import { Size } from '@interface/sizes';
 
 defineProps<{
   sizes: Size[];

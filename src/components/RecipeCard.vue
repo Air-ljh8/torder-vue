@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { Recipe } from '@interface/goods';
+import { Recipe } from '@interface/recipes';
 
 const props = defineProps<{
   recipe: Recipe;

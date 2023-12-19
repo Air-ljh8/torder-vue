@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { endpoints } from '@apis';
 
-import { Recommendation } from '@interface/goods';
+import { Recommendation } from '@interface/recommendations';
 
 type Response = {
   recommendations: Recommendation[];

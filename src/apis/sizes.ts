@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import endpoints from './endpoints';
 
-import { Size } from '@interface/goods';
+import { Size } from '@interface/sizes';
 
 type Response = {
   sizes: Size[];

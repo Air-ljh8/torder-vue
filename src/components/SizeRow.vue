@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { Size } from '@interface/goods';
+import { Size } from '@interface/sizes';
 import { useUserSelectStore } from '@store/storeUserSelect';
 import { PLACE_HOLD_IMAGE_URL } from '@constants';
 import { storeToRefs } from 'pinia';

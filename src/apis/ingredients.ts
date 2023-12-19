@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { endpoints } from '@apis';
 
-import { Ingredient } from '@interface/goods';
+import { Ingredient } from '@interface/ingredients';
 
 type Response = {
   ingredients: Ingredient[];
