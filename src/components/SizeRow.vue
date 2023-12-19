@@ -41,7 +41,7 @@ const getImageWidth = (size: Size) => {
 
 const store = useUserSelectStore();
 const { userSelect } = storeToRefs(store);
-const { setUserSelectSizeId, setUserSelectSizeValue } = useUserSelectStore();
+const { setUserSelectSizeId, setUserSelectSizeValue } = store;
 
 const handleSizeClick = (size: Size) => {
   if (userSelect.value.sizeId === size.id) {

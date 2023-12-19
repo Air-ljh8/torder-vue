@@ -18,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
 import ProgressNavBar from '@containers/ProgressNavBar.vue';
 import SizeBoard from '@containers/SizeBoard.vue';
 import NextButton from '@components/NextButton.vue';
@@ -26,5 +27,6 @@ import { pushPage } from '@router/route.helper';
 import { useUserSelectStore } from '@store/storeUserSelect';
 
 const { data, isLoading } = useGetSizes();
-const { userSelect } = useUserSelectStore();
+const store = useUserSelectStore();
+const { userSelect } = storeToRefs(store);
 </script>
