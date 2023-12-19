@@ -26,6 +26,7 @@
 import { Size } from '@interface/goods';
 import { useUserSelectStore } from '@store/storeUserSelect';
 import { PLACE_HOLD_IMAGE_URL } from '@constants';
+import { storeToRefs } from 'pinia';
 
 defineProps<{
   title: string;
@@ -38,11 +39,12 @@ const getImageWidth = (size: Size) => {
   return 74;
 };
 
-const { userSelect, setUserSelectSizeId, setUserSelectSizeValue } =
-  useUserSelectStore();
+const store = useUserSelectStore();
+const { userSelect } = storeToRefs(store);
+const { setUserSelectSizeId, setUserSelectSizeValue } = useUserSelectStore();
 
 const handleSizeClick = (size: Size) => {
-  if (userSelect.sizeId === size.id) {
+  if (userSelect.value.sizeId === size.id) {
     setUserSelectSizeId(0);
     setUserSelectSizeValue(0);
     return;
@@ -54,8 +56,8 @@ const handleSizeClick = (size: Size) => {
 const getUserSelectStyle = (size: Size) => ({
   'flex h-[74px] w-[74px] items-center justify-center rounded-2xl border-[3px] bg-gray_01-light dark:bg-gray_01-dark':
     true,
-  'border-secondary-light': userSelect.sizeId === size.id,
+  'border-secondary-light': userSelect.value.sizeId === size.id,
   'border-gray_01-light dark:border-gray_01-dark':
-    userSelect.sizeId !== size.id,
+    userSelect.value.sizeId !== size.id,
 });
 </script>
