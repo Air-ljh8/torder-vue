@@ -3,7 +3,7 @@
     class="text-gray_05-light dark:text-gray_05-dark w-6 h-6"
     @click="goBack"
   >
-    <slot></slot>
+    <slot />
   </button>
 </template>
 

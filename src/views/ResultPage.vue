@@ -11,7 +11,7 @@
         <div
           class="relative flex h-[460px] w-[340px] items-center justify-center rounded-3xl shadow-light transition-all dark:shadow-dark"
         >
-          <div v-if="isLoading">로딩중입니다.</div>
+          <img v-if="isLoading" :src="loadingGIF" />
           <RecipeCard v-else :recipe="data?.recipe!" hasBookmark />
         </div>
       </main>
@@ -35,6 +35,7 @@ import NextButton from '@components/NextButton.vue';
 import { pushPage } from '@router/route.helper';
 import { useGetRecipe } from '@apis/recipes';
 import { useUserSelectStore } from '@store/storeUserSelect';
+import loadingGIF from '@assets/loading/loading.gif';
 
 const route = useRoute();
 const { id } = route.params;
