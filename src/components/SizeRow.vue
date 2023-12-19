@@ -3,8 +3,8 @@
     <p class="text-medium font-semi_bold">{{ title }}</p>
     <div class="flex gap-x-3">
       <button
-        v-for="size in sizes"
-        :key="size.id"
+        v-for="(size, index) in sizes"
+        :key="getButtonKey(size, index)"
         class="flex flex-col items-center justify-between gap-y-[10px]"
         @click="handleSizeClick(size)"
       >
@@ -52,6 +52,8 @@ const handleSizeClick = (size: Size) => {
   setUserSelectSizeId(size.id);
   setUserSelectSizeValue(size.value);
 };
+
+const getButtonKey = (size: Size, index: number) => `size-${size.id}-${index}`;
 
 const getUserSelectStyle = (size: Size) => ({
   'flex h-[74px] w-[74px] items-center justify-center rounded-2xl border-[3px] bg-gray_01-light dark:bg-gray_01-dark':
