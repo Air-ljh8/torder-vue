@@ -3,7 +3,7 @@
     <section
       class="mx-auto flex h-full flex-col items-center justify-between bg-gray_00-light text-gray_05-light dark:bg-gray_00-dark dark:text-gray_05-dark sm:w-screen md:w-96"
     >
-      <ProgressNavBar pageName="result" prevPage="/ingredient" />
+      <ProgressNavBar pageName="result" prevPage="ingredient" />
       <main
         class="flex h-full w-full flex-1 flex-col items-center justify-start gap-y-5 px-5 pt-[34px]"
       >
@@ -11,7 +11,7 @@
         <div
           class="relative flex h-[460px] w-[340px] items-center justify-center rounded-3xl shadow-light transition-all dark:shadow-dark"
         >
-          <div v-if="isLoading">로딩중입니다.</div>
+          <Loading v-if="isLoading" />
           <RecipeCard v-else :recipe="data?.recipe!" hasBookmark />
         </div>
       </main>
@@ -32,6 +32,7 @@ import { useRoute } from 'vue-router';
 import ProgressNavBar from '@containers/ProgressNavBar.vue';
 import RecipeCard from '@components/RecipeCard.vue';
 import NextButton from '@components/NextButton.vue';
+import Loading from '@components/Loading.vue';
 import { pushPage } from '@router/route.helper';
 import { useGetRecipe } from '@apis/recipes';
 import { useUserSelectStore } from '@store/storeUserSelect';

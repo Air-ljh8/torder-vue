@@ -14,15 +14,15 @@
       </div>
       <div class="flex flex-col items-center justify-center">
         <p>
-          {{ flavorsFirstRow.map((flavor) => flavor.flavorName).join(' + ') }}
-          {{ flavorCount >= 3 ? ' + ' : '' }}
+          {{ flavorsFirstRowNames }}
+          {{ getMiddlePlus(flavorCount, 3) }}
         </p>
         <p>
-          {{ flavorsSecondRow.map((flavor) => flavor.flavorName).join(' + ') }}
-          {{ flavorCount >= 5 ? ' + ' : '' }}
+          {{ flavorsSecondRowNames }}
+          {{ getMiddlePlus(flavorCount, 5) }}
         </p>
         <p>
-          {{ flavorsThirdRow.map((flavor) => flavor.flavorName).join(' + ') }}
+          {{ flavorsThirdRowNames }}
         </p>
       </div>
     </div>
@@ -42,23 +42,43 @@
 </template>
 
 <script setup lang="ts">
-import { Recipe } from '@interface/goods';
+import { computed, ref } from 'vue';
+import { Recipe } from '@interface/recipes';
 
-const { recipe, hasBookmark } = defineProps<{
+const props = defineProps<{
   recipe: Recipe;
-  hasBookmark?: boolean;
+  hasBookmark?: boolean | undefined;
 }>();
 
-const flavors = recipe.flavors;
-const flavorCount = flavors.length;
-const flavorsFirstRow = flavors.slice(0, 2);
-const flavorsSecondRow = flavors.slice(2, 4);
-const flavorsThirdRow = flavors.slice(4, flavorCount);
-const recipeName = recipe.recipeName;
-const recipeNameNounCount = recipeName.split(' ').length;
-const recipeNameStartRow = recipeName.split(' ').slice(0, 2).join(' ');
-const recipeNameEndRow = recipeName
-  .split(' ')
-  .slice(2, recipeNameNounCount)
-  .join(' ');
+const flavors = ref(props.recipe.flavors);
+const flavorCount = computed(() => flavors.value.length);
+const flavorsFirstRowNames = computed(() =>
+  flavors.value
+    .slice(0, 2)
+    .map((flavor) => flavor.flavorName)
+    .join(' + ')
+);
+const flavorsSecondRowNames = computed(() =>
+  flavors.value
+    .slice(2, 4)
+    .map((flavor) => flavor.flavorName)
+    .join(' + ')
+);
+const flavorsThirdRowNames = computed(() =>
+  flavors.value
+    .slice(4, flavorCount.value)
+    .map((flavor) => flavor.flavorName)
+    .join(' + ')
+);
+const getMiddlePlus = (count: number, standardCount: number) =>
+  count >= standardCount ? ' + ' : '';
+
+const recipeName = ref(props.recipe.recipeName);
+const recipeNameNounCount = computed(() => recipeName.value.split(' ').length);
+const recipeNameStartRow = computed(() =>
+  recipeName.value.split(' ').slice(0, 2).join(' ')
+);
+const recipeNameEndRow = computed(() =>
+  recipeName.value.split(' ').slice(2, recipeNameNounCount.value).join(' ')
+);
 </script>

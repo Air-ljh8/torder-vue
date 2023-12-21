@@ -1,22 +1,19 @@
 <template>
-  <button
-    @click="
-      () => {
-        if (!props.disabled) props.onClick();
-      }
-    "
-    :class="getNextButtonStyle()"
-  >
-    <slot></slot>
+  <button @click="handleNextButtonClick" :class="getNextButtonStyle()">
+    <slot />
   </button>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  isPrimary?: boolean;
+  isPrimary?: boolean | undefined;
   onClick: () => void;
-  disabled?: boolean;
+  disabled?: boolean | undefined;
 }>();
+
+const handleNextButtonClick = () => {
+  if (!props.disabled) props.onClick();
+};
 
 const getNextButtonStyle = () => ({
   'h-fit w-[340px] rounded-2xl border-0 p-6 text-large font-bold mb-6': true,
